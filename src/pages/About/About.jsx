@@ -1,13 +1,19 @@
-import React from 'react';
-import Nav from '../../components/Nav/Nav';
+import AboutBanner from "../../components/AboutBanner/AboutBanner";
+import Collapse from "../../components/Collapse/Collapse";
+import aboutArray from "../../datas/aboutArray.json";
 
-const About = () => {
-    return (
-        <div>
-            <Nav />
-            <h1>À Propos</h1>
-        </div>
-    );
-};
-
-export default About;
+export default function About() {
+  return (
+    <>
+      <AboutBanner />
+      {aboutArray.map((rule, id) => (
+        <Collapse
+          key={id}
+          aboutTitle={rule.aboutTitle}
+          aboutText={rule.aboutText}
+          aboutStyle="about-style"
+        />
+      ))}
+    </>
+  );
+}

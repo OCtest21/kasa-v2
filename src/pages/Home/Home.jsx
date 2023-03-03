@@ -8,8 +8,6 @@ export default function Home() {
   console.log(data);
   return (
     <div>
-      <Nav />
-      <h1>Accueil</h1>
       <Banner />
       <div className="cards-container">
         {data.map((appart) => (
