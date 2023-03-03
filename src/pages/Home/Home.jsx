@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import Banner from "../../components/Banner/Banner";
 import Card from "../../components/Cards/Card";
 import Nav from "../../components/Nav/Nav";
 import data from "../../datas/logements.json";
@@ -9,6 +10,7 @@ export default function Home() {
     <div>
       <Nav />
       <h1>Accueil</h1>
+      <Banner />
       <div className="cards-container">
         {data.map((appart) => (
           <Card
