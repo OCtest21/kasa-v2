@@ -1,13 +1,9 @@
-import React from 'react';
-import Nav from '../../components/Nav/Nav';
+import ErrorPage from "../../components/ErrorPage/ErrorPage";
 
-const Error = () => {
-    return (
-        <div>
-            <Nav />
-            <h1>Error</h1>
-        </div>
-    );
-};
-
-export default Error;
+export default function Error() {
+  return (
+    <>
+      <ErrorPage />
+    </>
+  );
+}
