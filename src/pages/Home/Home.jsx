@@ -3,15 +3,8 @@ import Banner from "../../components/Banner/Banner";
 import Card from "../../components/Cards/Card";
 import data from "../../datas/logements.json";
 import { Link } from "react-router-dom";
-import axios from "axios";
 
 export default function Home() {
-  const [data, setData] = useState([]);
-
-  useEffect(() => {
-    axios.get("/logements.json").then((res) => setData(res.data));
-  }, []);
-
   return (
     <>
       <Banner />
@@ -27,4 +20,3 @@ export default function Home() {
     </>
   );
 }
-//

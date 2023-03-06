@@ -5,24 +5,21 @@ import Collapse from "../../components/Collapse/Collapse";
 import Host from "../../components/Host/Host";
 import Rate from "../../components/Rate/Rate";
 import Tag from "../../components/Tag/Tag";
-import axios from "axios";
+import data from "../../datas/logements.json";
 
 export default function FicheLogement() {
   const params = useParams();
   const navigate = useNavigate();
-
   const [pickedAppart, setPickedAppart] = useState();
+
   useEffect(() => {
-    const getData = async () => {
-      const res = await axios.get("/logements.json");
-      const picked = res.data.find(({ id }) => id === params.id);
-      res.data.map(() => setPickedAppart(picked));
-      if (picked === undefined) {
-        navigate("/404", { state: { message: "Can't get data" } });
-      }
-    };
-    getData();
-  }, []);
+    const picked = data.find(({ id }) => id === params.id);
+    setPickedAppart(picked);
+    if (picked === undefined) {
+      navigate("/404", { state: { message: "Can't get data" } });
+    }
+  }, [pickedAppart, setPickedAppart]);
+
   const slidePics = pickedAppart && pickedAppart.pictures;
   const tags = pickedAppart && pickedAppart.tags;
   const equipments = pickedAppart && pickedAppart.equipments;
